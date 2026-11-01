@@ -8,6 +8,8 @@ const copyRequestStreamMiddleware = require('./middleware/copy-request-stream');
 const validateMultipartMiddleware = require('./middleware/validate-multipart');
 const database = require('./database');
 const config = require('./config');
+const { createApi } = require('./api');
+const { SplatfestResult } = require('./models/splatfest_result');
 
 const app = express();
 app.disable('x-powered-by');
@@ -47,8 +49,9 @@ async function main() {
 	await database.connect();
 
 	await app.listen(port);
+	await createApi(SplatfestResult).listen(config.http.apiPort);
 
-	console.log(`Server listening on http://localhost:${port}`);
+	console.log(`Server listening on http://localhost:${port}, read API on ${config.http.apiPort}`);
 }
 
 main().catch(console.error);
