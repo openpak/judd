@@ -7,9 +7,10 @@ const validateBOSSDigestMiddleware = require('./middleware/validate-boss-digest'
 const copyRequestStreamMiddleware = require('./middleware/copy-request-stream');
 const validateMultipartMiddleware = require('./middleware/validate-multipart');
 const database = require('./database');
-const config = require('../config.json');
+const config = require('./config');
 
 const app = express();
+app.disable('x-powered-by');
 const { port } = config.http;
 
 app.use(morgan('dev'));

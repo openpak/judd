@@ -1,7 +1,7 @@
 {
   "name": "judd",
   "version": "1.0.0",
-  "description": "",
+  "description": "Multiplayer match results server (OpenPak port of Pretendo Judd)",
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,6 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": "github:openpak/judd",
   "dependencies": {
     "express": "^4.18.2",
     "express-subdomain": "^1.0.5",

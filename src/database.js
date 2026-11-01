@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const config = require('../config.json');
+const config = require('./config');
 const { connection_string, options } = config.mongoose;
 
 let connection;
