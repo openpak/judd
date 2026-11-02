@@ -1,3 +1,9 @@
+# Provenance
+
+Based on [Pretendo `Judd`](https://github.com/PretendoNetwork/Judd) (ISC). License as upstream; see LICENSE. The upstream README follows verbatim.
+
+---
+
 # Upstream README: Judd
 
 # Judd

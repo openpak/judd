@@ -10,3 +10,15 @@ Splatoon (`wup-agmj`) uploads one record per player per Splatfest match.
   match; `X-Boss-UniqueId` identifies the upload.
 - Answer: `200 success`. Every failure is `500 error`, as the original server did.
 - Stored in the `results` collection of the `judd` database.
+
+## Title host
+
+The Splatoon title code is `wup-agmj` (the NEX build name in `nex/titles/splatoon` is
+`branch:origin/project/wup-agmj`), so the game talks to `wup-agmj.app.nintendo.net`. Judd takes
+the title code from the host's subdomain. The console resolves `.nintendo.net` to OpenPak
+through `nn-sssl-dns`; the Wii U patcher does not rewrite this name (it lives in the game).
+
+## Aggregate read API
+
+Upstream stores results only. OpenPak adds an aggregate read API (v0.2.0, `src/tally.js`,
+`src/api.js`) for SplatNet.

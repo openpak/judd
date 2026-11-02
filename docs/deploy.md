@@ -21,3 +21,8 @@ and nothing else. SplatNet reads it through `JUDD_URL=http://openpak-judd:20141`
 
 Teams are the game's `FesTeam` (0 = Alpha, 1 = Bravo). `wins` counts uploads with `IsWinGame = 1`,
 so a match is counted once per player who uploaded it.
+
+## Port changes from upstream
+
+Environment configuration, 8 MB body limit (Express' 100 kB default is too small for the face
+image), `x-powered-by` off, tag-driven image release.

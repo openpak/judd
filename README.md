@@ -28,10 +28,8 @@ Settings are environment variables: `JUDD_HTTP_PORT` and `JUDD_MONGO_CONNECTION_
 ## Docs
 
 - [Protocol](docs/protocol.md)
-- [Evidence](docs/evidence.md)
 - [Deploy](docs/deploy.md)
-- [Notes](docs/notes.md)
-- [Upstream README](docs/upstream.md)
+- [Provenance](docs/provenance.md)
 
 ## Licence
 
