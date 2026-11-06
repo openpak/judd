@@ -2,6 +2,14 @@
 
 The early history is upstream (Pretendo); OpenPak work starts at v0.1.0.
 
+## v0.3.0 - 2026-11-06
+
+- Postgres store (card #20): set `JUDD_DATABASE_URL` and match results go to `judd_results`
+  (migrations in `migrations/`, applied at start-up). Unset, the service still uses Mongo, which
+  is the rollback. The Mii name and face image of an upload are no longer stored (copies of the
+  account core's Mii that nothing reads). `scripts/migrate-from-mongo.js` copies old rows.
+- Request logging unchanged (one line per request on stdout).
+
 ## v0.2.1 — 2026-11-04
 
 - docs: README + protocol + deploy only; PRDs move to openpak/prds

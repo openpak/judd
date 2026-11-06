@@ -11,6 +11,7 @@ module.exports = {
 		// read API for SplatNet: internal network only, never behind the console hostnames
 		apiPort: Number(process.env.JUDD_API_PORT) || 20141
 	},
+	postgres: { url: process.env.JUDD_DATABASE_URL || '' },
 	mongoose: {
 		connection_string: process.env.JUDD_MONGO_CONNECTION_STRING || fileConfig.mongoose?.connection_string,
 		options: fileConfig.mongoose?.options || {}

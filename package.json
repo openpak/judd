@@ -1,6 +1,6 @@
 {
   "name": "judd",
-  "version": "1.0.0",
+  "version": "0.3.0",
   "description": "Multiplayer match results server (OpenPak port of Pretendo Judd)",
   "main": "src/server.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "express-subdomain": "^1.0.5",
     "joi": "^17.7.0",
     "mongoose": "^6.7.1",
+    "pg": "^8.13.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1"
   }

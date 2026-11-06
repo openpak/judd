@@ -10,7 +10,7 @@ TLS: the `wup-agmj` leaf is signed by the OpenPak CA (the same one the console a
 trusts) and listed under `tls.certificates` in Traefik's `dynamic.yml`; `wiiu.pem` does
 not cover these names.
 
-Environment: `JUDD_HTTP_PORT=20140`, `JUDD_MONGO_CONNECTION_STRING=mongodb://openpak-mongo:27017/judd`.
+Environment: `JUDD_HTTP_PORT=20140`, `JUDD_DATABASE_URL` (Postgres database `judd`, role `judd`, from the shared env file). The legacy `JUDD_MONGO_CONNECTION_STRING=mongodb://openpak-mongo:27017/judd` is only used when `JUDD_DATABASE_URL` is unset: that is the rollback (remove the variable, restart `openpak-judd`).
 
 ## Read API (v0.2.0)
 

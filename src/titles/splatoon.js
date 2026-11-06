@@ -1,10 +1,9 @@
 const multer = require('multer');
 const { joi } = require('../util');
-const { SplatfestResult } = require('../models/splatfest_result');
+
 
 module.exports = {
 	type: 'splatfest',
-	result_model: SplatfestResult,
 	validation_schema: joi.object({
 		ServerEnv: joi.string(),
 		PId: joi.numberstring(),

@@ -5,9 +5,9 @@
 //   GET /api/splatfests/:id      one festival's per-team tally
 //   GET /healthz
 const express = require('express');
-const { teamPipeline, festListPipeline, shapeFest, shapeFestList } = require('./tally');
+const { shapeFest, shapeFestList } = require('./tally');
 
-function createApi(SplatfestResult) {
+function createApi(store) {
 	const api = express();
 	api.disable('x-powered-by');
 
@@ -15,7 +15,7 @@ function createApi(SplatfestResult) {
 
 	api.get('/api/splatfests', async (_req, res, next) => {
 		try {
-			res.json(shapeFestList(await SplatfestResult.aggregate(festListPipeline())));
+			res.json(shapeFestList(await store.festGroups()));
 		} catch (error) {
 			next(error);
 		}
@@ -25,7 +25,7 @@ function createApi(SplatfestResult) {
 		const festId = Number(req.params.id);
 		if (!Number.isInteger(festId) || festId < 0 || festId > 0xffffffff) return res.sendStatus(400);
 		try {
-			res.json(shapeFest(festId, await SplatfestResult.aggregate(teamPipeline(festId))));
+			res.json(shapeFest(festId, await store.teamGroups(festId)));
 		} catch (error) {
 			next(error);
 		}

@@ -4,18 +4,13 @@ const titles = require('../titles');
 router.post('/post', async (request, response, next) => {
 	const title = titles[request.titleCode];
 
-	const resultType = title.type;
-	const ResultTypeModel = title.result_model;
-
-	const result = new ResultTypeModel({
-		type: resultType,
-		bossUniqueId: request.headers['x-boss-uniqueid'],
-		bossDigest: request.headers['x-boss-digest'],
-		resultData: request.resultData
-	});
-
 	try {
-		await result.save();
+		await request.app.locals.store.saveResult({
+			type: title.type,
+			bossUniqueId: request.headers['x-boss-uniqueid'],
+			bossDigest: request.headers['x-boss-digest'],
+			resultData: request.resultData
+		});
 	} catch (error) {
 		return next(error);
 	}
